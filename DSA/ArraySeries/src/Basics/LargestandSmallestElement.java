@@ -1,0 +1,38 @@
+package Basics;
+
+import java.util.*;
+
+public class LargestandSmallestElement {
+    private static void large(int[] arr, int size) {
+        int large = Integer.MIN_VALUE;
+        for(int i = 0; i < size; i++){
+            if(large < arr[i]){
+                large = arr[i];
+            }
+        }
+        System.out.println("Large: " + large);
+    }
+
+    private static void small(int[] arr, int size) {
+        int small = Integer.MAX_VALUE;
+        for(int i = 0; i< size; i++){
+            if(small > arr[i]){
+                small = arr[i];
+            }
+        }
+        System.out.println("Small: " + small);
+    }
+
+    public static void main(String[] args) {
+        Scanner sc = new Scanner(System.in);
+        System.out.println("Enter the Array Size: ");
+        int size = sc.nextInt();
+        int[] arr = new int[size];
+        System.out.println("Enter the Array Element: ");
+        for(int i = 0; i < size; i++){
+            arr[i] = sc.nextInt();
+        }
+        large(arr,size);
+        small(arr,size);
+    }
+}
