@@ -3,10 +3,10 @@ package Level_4;
 import java.util.Scanner;
 
 /**
- * Move all zeros to the end (maintain order)
+ * Shift all negative numbers to the left
  */
 
-public class MoveZeros {
+public class NegativetoLeft {
 
     // --- Validation methods ---
     private static void validateInputSize(int size) {
@@ -25,7 +25,7 @@ public class MoveZeros {
     }
 
     // --- Business Methods ---
-    private static void moveZeros(int[] arr, int size) {
+    private static void moveZerostoLeft(int[] arr, int size) {
         validateArray(arr);
         int left = 0;
 
@@ -54,6 +54,6 @@ public class MoveZeros {
         for(int i = 0; i < size; i++){
             arr[i] = sc.nextInt();
         }
-        moveZeros(arr,size);
+        moveZerostoLeft(arr,size);
     }
 }
