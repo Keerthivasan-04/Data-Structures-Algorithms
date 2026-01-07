@@ -106,7 +106,7 @@ public class NegativetoLeft {
             arr[i] = sc.nextInt();
         }
 
-        moveNegativetoLeft_ExtraSpace(arr,8);
-        moveNegativetoLeft_ExtraTime(arr,8);
+        moveNegativetoLeft_ExtraSpace(arr,size);
+        moveNegativetoLeft_ExtraTime(arr,size);
     }
 }
