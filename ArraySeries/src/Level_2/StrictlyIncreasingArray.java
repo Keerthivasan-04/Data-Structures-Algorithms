@@ -24,7 +24,6 @@ public class StrictlyIncreasingArray {
         }
     }
 
-
     // --- Business Methods ---
     private static boolean isStrictlyIncreasing(int[] arr, int size) {
         validateArray(arr);
@@ -57,6 +56,4 @@ public class StrictlyIncreasingArray {
             System.out.println("Array is not strictly increasing");
         }
     }
-
-
 }

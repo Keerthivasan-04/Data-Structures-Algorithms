@@ -1,12 +1,9 @@
-package Level_4;
+package Level_5;
 
 import java.util.Scanner;
 
-/**
- * Check if array is sorted and rotated
- */
+public class MaximumConsecutive1s {
 
-public class CheckArrayisSortedandRotated {
     // --- Validation methods ---
     private static void validateInputSize(int size) {
         if(size <= 0){
@@ -21,19 +18,22 @@ public class CheckArrayisSortedandRotated {
     }
 
     // --- Business Methods ---
-    private static boolean checkArrayisSortedandRotated(int[] arr, int size) {
+    private static int findMaximumConsecutive1s(int[] arr, int size) {
         validateArray(arr);
-        int breaks = 0;
-        for(int i = 0; i < size-1; i++){
-            if(arr[i] > arr[i + 1]){
-                breaks++;
+
+        int maxCount = 0;
+        int count = 0;
+
+        for(int i = 0; i < size; i++){
+            if(arr[i] == 1){
+                count++;
+                maxCount = Math.max(maxCount, count);
             }
-            if(arr[size - 1] > arr[0]){
-                breaks++;
+            else{
+                count = 0;
             }
         }
-        return breaks == 1;
-        
+        return maxCount;
     }
 
     public static void main(String[] args) {
@@ -44,15 +44,11 @@ public class CheckArrayisSortedandRotated {
         validateInputSize(size);
 
         int[] arr = new int[size];
-        System.out.println("Enter the array elements: ");
+        System.out.println("Enter the array elements: (Only Binary Array)");
         for(int i = 0; i < size; i++){
             arr[i] = sc.nextInt();
         }
-        if(checkArrayisSortedandRotated(arr,size)){
-            System.out.println("It is sorted and rotated");
-        }
-        else{
-            System.out.println("It is not sorted and rotated");
-        }
+        int result = findMaximumConsecutive1s(arr,size);
+        System.out.println("Maximum Consecutive 1s: "+ result);
     }
 }

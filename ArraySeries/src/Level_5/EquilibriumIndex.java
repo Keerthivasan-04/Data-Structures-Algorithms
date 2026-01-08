@@ -1,12 +1,13 @@
-package Level_4;
+package Level_5;
 
 import java.util.Scanner;
 
 /**
- * Check if array is sorted and rotated
+ * Find equilibrium index (brute traversal)
  */
 
-public class CheckArrayisSortedandRotated {
+public class EquilibriumIndex {
+
     // --- Validation methods ---
     private static void validateInputSize(int size) {
         if(size <= 0){
@@ -21,19 +22,26 @@ public class CheckArrayisSortedandRotated {
     }
 
     // --- Business Methods ---
-    private static boolean checkArrayisSortedandRotated(int[] arr, int size) {
+    private static int findEquilibriumIndex(int[] arr, int size) {
         validateArray(arr);
-        int breaks = 0;
-        for(int i = 0; i < size-1; i++){
-            if(arr[i] > arr[i + 1]){
-                breaks++;
+        for(int i = 0; i < size; i++){
+
+            int leftSum = 0;
+            int rightSum = 0;
+
+            for(int j = 0; j < i; j++){
+                leftSum += arr[j];
             }
-            if(arr[size - 1] > arr[0]){
-                breaks++;
+
+            for(int k = i + 1; k < size; k++){
+                rightSum += arr[k];
+            }
+            if(leftSum == rightSum){
+                return i;
             }
         }
-        return breaks == 1;
-        
+        return -1;
+
     }
 
     public static void main(String[] args) {
@@ -48,11 +56,7 @@ public class CheckArrayisSortedandRotated {
         for(int i = 0; i < size; i++){
             arr[i] = sc.nextInt();
         }
-        if(checkArrayisSortedandRotated(arr,size)){
-            System.out.println("It is sorted and rotated");
-        }
-        else{
-            System.out.println("It is not sorted and rotated");
-        }
+        int result = findEquilibriumIndex(arr,size);
+        System.out.println("Equilibrium Index: "+ result);
     }
 }
