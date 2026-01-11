@@ -6,7 +6,7 @@ import java.util.Scanner;
  * Find the missing number from 1 to N
  */
 
-public class MIssingNumber {
+public class MissingNumber {
     // --- Validation methods ---
     private static void validateInputSize(int size) {
         if(size <= 0){
